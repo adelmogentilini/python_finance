@@ -1,0 +1,9 @@
+# From this template write a yaml file with your information of account.
+# m5Trade read this file and iterate on account for apply strategy.
+# If you have a demo account for test set name = "demo" and flag demo_mode = True in mt5Trade.py
+
+{
+  conti:[
+    {nome: "XXX", login: 00000, password: "XXX", server: "SERVER"},
+  ]
+}

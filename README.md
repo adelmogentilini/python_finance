@@ -5,3 +5,7 @@ This is a project that can serve as a basic skeleton for developing applications
 ## Customization of the simulation
 
 The simulation can be conducted on multiple assets simultaneously, but the provided result will be cumulative, as if we had invested simultaneously in all the assets.
+
+## Metatrader 5 real trading
+
+With a MetaTrader 5 account at your disposal, the code you can find in the MT5 directory is very useful as a foundation for writing trading bots in Python using your MT5 account.
