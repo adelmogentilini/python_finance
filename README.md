@@ -14,3 +14,5 @@ For integrated trading with MT5, it is necessary to:
 * have MT5 installed on your machine, as the library interacts directly with it and not with the remote website.
 
 The code you can find in the MT5 directory is very useful as a base for writing trading bots in Python using your MT5 account.
+
+To enable your mt5 platform for autotrading check options in "MT4/5 >> Tools >> Options >> Expert Advisors tab settings".
