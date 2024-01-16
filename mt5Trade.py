@@ -1,11 +1,11 @@
 import yaml
 
-from mt5.myTraderMt5 import MyTraderMt5
+from mt5 import MyTraderMt5
 
 demo_mode = True
 
 try:
-    with open("config_trade.yaml", 'r') as file:
+    with open("config/config_trade.yaml", 'r') as file:
         properties = yaml.load(file, Loader=yaml.SafeLoader)
         conti = properties.get('conti')
         print (conti)
@@ -18,4 +18,4 @@ try:
 
 
 except Exception as e:
-    print('FILE DI CONFIG non trovato o incompleto ')
+    print(e)
