@@ -14,6 +14,7 @@ class MyTraderMt5:
         self.password = password
         self.server = server
         self.symbol = symbol
+        self.profit_reference = -1000000
         res_init = mt.initialize()
         res_login = mt.login(self.login, self.password, self.server)
         
@@ -122,4 +123,10 @@ class MyTraderMt5:
             if pos_open.profit > profit:
                 print (f" Try to close {pos_open} open for {msg}")
                 resp = self.closeOrderAtMarket(pos_open.ticket)
+                self.profit_reference = pos_open.profit-profit/2
                 print(resp)
+            else:
+                 if abs(pos_open.profit) < self.profit_reference:
+                      print (f" Chiudo perchè sono comunque in positivo ")
+                      resp = self.closeOrderAtMarket(pos_open.ticket)
+                      self.profit_reference = -10000
