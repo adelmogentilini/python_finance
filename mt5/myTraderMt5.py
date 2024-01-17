@@ -18,9 +18,9 @@ class MyTraderMt5:
         res_login = mt.login(self.login, self.password, self.server)
         
 
-    def test_account(self):
-        rates = mt.copy_rates_from(self.symbol, mt.TIMEFRAME_D1, datetime.now(), 100)
-        print (rates)
+    def info_account_and_symbol(self):
+        #rates = mt.copy_rates_from(self.symbol, mt.TIMEFRAME_D1, datetime.now(), 100)
+        #print (rates)
         account_info = mt.account_info()
         print (account_info)
         print(f"Balance {account_info.balance}")
@@ -47,7 +47,6 @@ class MyTraderMt5:
     def send_order(self, req, n=5):
         for _ in range(n):
             res = mt.order_send(req)
-           
             if res is not None and res.retcode == mt.TRADE_RETCODE_DONE:
                 break
             else:
@@ -108,8 +107,10 @@ class MyTraderMt5:
         if len(pos) == 0:
             print(self.buyOrder(0.01))
             print(self.sellOrder(0.01))
+            
+    
     # Testing simple trading: close order that are in profit
-    def operationTrade(self):
+    def operationTrade(self, profit = 0.40):
         pos = mt.positions_get(symbol=self.symbol)
         for pos_open in pos:
             sell_pos = pos_open.type == 1
@@ -118,7 +119,7 @@ class MyTraderMt5:
                 msg = " sell "
             else:
                 msg = " buy "
-            if pos_open.profit > 0:
+            if pos_open.profit > profit:
                 print (f" Try to close {pos_open} open for {msg}")
                 resp = self.closeOrderAtMarket(pos_open.ticket)
                 print(resp)
