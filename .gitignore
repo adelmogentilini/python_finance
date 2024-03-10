@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 /_venv/
+=======
+config/config_trade.yaml
+/venv/
+config/config.yaml
+>>>>>>> b7c672f84d9c5d46fd51346d5cb96f72f6b50070

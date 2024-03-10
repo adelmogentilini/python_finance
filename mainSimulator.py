@@ -1,12 +1,12 @@
 from simulator import Simulator
-from strategyTrade import StrategyTrade
+from simulator import StrategyTrade
 import yaml
 
 if __name__ == '__main__':
     # symbol_lists = ['EURUSD=X', 'CL=F', 'FTSEMIB.MI']
     # symbol_lists = ['BTC-EUR', 'EURUSD=X']
     try:
-        with open("config.yaml", 'r') as file:
+        with open("config/config.yaml", 'r') as file:
             properties = yaml.load(file, Loader=yaml.SafeLoader)
             symbol_lists = properties.get('symbol_lists')
     except Exception as e:
